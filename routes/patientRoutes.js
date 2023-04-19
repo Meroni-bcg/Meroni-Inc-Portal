@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const mongoose = require('mongoose')
 
 // Get all patients
   router.get('/', (req, res) => {
