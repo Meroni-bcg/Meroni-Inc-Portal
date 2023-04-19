@@ -1,6 +1,7 @@
-const express = require('express')
-const router = express.Router()
-const mongoose = require('mongoose')
+const express = require('express');
+const Patient = require('../models/patientmodel.js')
+const router = express.Router();
+const mongoose = require('mongoose');
 
 // Get all patients
   router.get('/', (req, res) => {
@@ -13,8 +14,15 @@ const mongoose = require('mongoose')
   }),
 
 // POST a new patient
-  router.post('/', (req, res) => {
-    res.json({message: 'POST new patient'})
+  router.post('/', async (req, res) => {
+    const {firstName, lastName, dob, mobile, email, city, state} = req.body
+    try {
+      const patient = await Patient.create({firstName, lastName, dob, mobile, email, city, state })
+      res.status(200).json(patient)
+    } catch(error) {
+      res.status(400).json({error: error.message})
+    }
+    //res.json({message: 'POST new patient'})
   }),
 
 //Delete patient
@@ -29,4 +37,4 @@ const mongoose = require('mongoose')
 
 
 
-module.exports = router
+module.exports = router;
