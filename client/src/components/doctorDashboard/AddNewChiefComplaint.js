@@ -26,7 +26,8 @@ const handleSubmit = (event) => {
 
     //Code to submit chief complaint data goes here
 
-
+setIsLoading(false);
+NavigationPreloadManager('/diagnosis'); //takes you to diagnosis page ** COMEBACK MAKE SURE WE HAVE THIS PAGE SET UP
     
-}
+};
 }
