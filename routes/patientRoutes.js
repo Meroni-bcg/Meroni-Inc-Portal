@@ -2,38 +2,29 @@ const express = require('express');
 const Patient = require('../models/patientmodel.js')
 const router = express.Router();
 const mongoose = require('mongoose');
+const {
+  createPatient,
+  getPatients,
+  getPatient,
+  deletePatient,
+  updatePatient
+} = require('../controllers/patientController')
+
 
 // Get all patients
-  router.get('/', (req, res) => {
-    res.json({message: 'Get All Patients'})
-  }),
+  router.get('/', getPatient), 
 
 //Get Single Patient
-  router.get('/:id', (req, res) => {
-    res.json({message: 'Get single patient'})
-  }),
+  router.get('/:id', getPatient),
 
 // POST a new patient
-  router.post('/', async (req, res) => {
-    const {firstName, lastName, dob, mobile, email, city, state} = req.body
-    try {
-      const patient = await Patient.create({firstName, lastName, dob, mobile, email, city, state })
-      res.status(200).json(patient)
-    } catch(error) {
-      res.status(400).json({error: error.message})
-    }
-    //res.json({message: 'POST new patient'})
-  }),
+  router.post('/', createPatient),
 
 //Delete patient
-  router.delete('/:id', (req, res) => {
-    res.json({message: 'DELETE new patient'})
-  }),
+  router.delete('/:id',deletePatient),
 
 //UPDATE patient
-  router.patch('/:id', (req, res) => {
-    res.json({message: 'UPDATE new patient'})
-  }),
+  router.patch('/:id', updatePatient),
 
 
 
