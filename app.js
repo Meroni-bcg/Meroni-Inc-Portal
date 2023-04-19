@@ -13,10 +13,10 @@ app.use((req, res, next) => {
   next()
 }),
 
-/*route
+//route
 app.get('/', (req, res) => {
   res.json({message: 'Welcome to Meroni-Inc-Portal'})
-}),*/
+}),
 
 app.use('/', patientRoutes)
 
