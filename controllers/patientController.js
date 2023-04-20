@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const getPatients = async(req, res) => {
     const patients = await Patient.find({}).sort({createdAt:-1})
 
-    res.status(200).json(patient)
+    res.status(200).json(patients)
 }
 
 //Get a single Patient
