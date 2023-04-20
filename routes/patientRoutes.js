@@ -1,5 +1,5 @@
 const express = require('express');
-const Patient = require('../models/patientmodel.js')
+const Patient = require('../models/patientmodel.js');
 const router = express.Router();
 const mongoose = require('mongoose');
 const {
@@ -12,7 +12,7 @@ const {
 
 
 // Get all patients
-  router.get('/', getPatient), 
+  router.get('/', getPatients), 
 
 //Get Single Patient
   router.get('/:id', getPatient),

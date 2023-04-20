@@ -1,4 +1,5 @@
 {
+  "proxy":"http://localhost:3000",
   "name": "server",
   "version": "1.0.0",
   "description": "Patient Portal",
@@ -22,6 +23,7 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.10.5",
+    "react-router-dom": "^6.10.0",
     "validator": "^13.7.0"
   }
 }

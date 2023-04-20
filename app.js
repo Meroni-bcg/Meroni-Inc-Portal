@@ -2,6 +2,9 @@ require("dotenv").config();
 const express = require('express');
 const patientRoutes = require("./routes/patientRoutes");
 const mongoose = require('mongoose')
+const dotenv = require('dotenv');
+dotenv.config();
+mongoose.set('strictQuery', false);
 
 //express app
 const app = express();

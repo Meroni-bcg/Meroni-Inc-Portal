@@ -20,7 +20,7 @@ const Home = () => {
         <div className="home">
             <div className='patients'>
                 {patients && patients.map((patient) => (
-                    <p key={patient._id}>{patient.firstName}</p>
+                    <p key={patient._id}>{patient.lasttName}</p>
                 ) )}
             </div>
         </div>
