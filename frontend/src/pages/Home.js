@@ -1,7 +1,28 @@
+import { useEffect, useState } from 'react'
+
 const Home = () => {
+    const [patients, setPatients] = useState(null)
+
+    useEffect(() => {
+        const fetchPatients = async () => {
+            const response = await fetch('http://localhost:3000/api/patients')
+            const json = await response.json()
+
+            if(response.ok) {
+                setPatients(json)
+            }
+        }
+
+        fetchPatients()
+    }, [])
+
     return(
         <div className="home">
-            <h2>Home</h2>
+            <div className='patients'>
+                {patients && patients.map((patient) => (
+                    <p key={patient._id}>{patient.firstName}</p>
+                ) )}
+            </div>
         </div>
     )
 }
