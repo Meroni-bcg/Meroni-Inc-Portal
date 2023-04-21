@@ -21,8 +21,15 @@ if (err.message === 11000) {
     return errors;
 }
 
-
-
+if (err.message.includes("Validation failed")) {
+    let errorsarray = Object.values(err.errors);
+    errorsarray.forEach(({ properties }) => {
+        if (!properties.path.includes(".")) {
+            errors[properties.path] = properties.message;
+        }
+    });
+return errors;
+};
 
 
 
