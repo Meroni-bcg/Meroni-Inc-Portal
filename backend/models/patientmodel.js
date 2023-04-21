@@ -1,25 +1,24 @@
 const mongoose = require('mongoose')
+
 const Schema = mongoose.Schema
-const router = require("express").Router();
 
 const patientSchema = new mongoose.Schema({
-
-    title: {
-      type: String,
-     required: true 
+    firstName:{
+        type: String,
+        required: true
     },
 
-    name: {
-      firstName: {
-      type: String,
-      required: [true, "Please enter First Name"],
+    age:{
+        type: Number,
+        required: true
     },
-      lastName: {
-        type:String,
-        required: [true, "Please enter Last Name"]
-      }
+
+    mobile:{
+        type: Number,
+        required: true, 
+        minlength: [10, "Please Enter a valid Mobile Number"],
     }
-}, { timestamps: true });
+}, {timestamps: true})
 
 module.exports = mongoose.model('Patient', patientSchema)
 

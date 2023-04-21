@@ -1,5 +1,5 @@
 const express = require('express');
-const Patient = require('../../models/patientmodel.js');
+const Patient = require('../models/patientmodel.js');
 const router = require("express").Router();
 const mongoose = require('mongoose');
 const {
@@ -8,7 +8,7 @@ const {
   getPatient,
   deletePatient,
   updatePatient
-} = require('../../controllers/patientController.js')
+} = require('../controllers/patientController.js')
 
 
 // Get all patients

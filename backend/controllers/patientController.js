@@ -11,6 +11,13 @@ const getPatients = async(req, res) => {
 //Create a new Patient
 const createPatient = async(req, res)=>{
     const {title, name } = req.body
+    //Add doc to db
+    try {
+        const patient = await Patient.create({title, name})
+        res.status(200).json(patient)
+      } catch(error) {
+        res.status(400).json({error: error.message})
+      }}
 
 //Get a single Patient
 const getPatient = async(req,res) => {
@@ -28,15 +35,6 @@ const getPatient = async(req,res) => {
 }
 res.status(200).json(patient)
 }
-
-
-//Add doc to db
-    try {
-      const patient = await Patient.create({title, name})
-      res.status(200).json(patient)
-    } catch(error) {
-      res.status(400).json({error: error.message})
-    }}
 
 
 //Delete a Patient
