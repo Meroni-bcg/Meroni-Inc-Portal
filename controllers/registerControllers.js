@@ -16,7 +16,10 @@ if (err.message === "Incorrect Password") {
 }
 
 //duplicate error code
-
+if (err.message === 11000) {
+    errors.healthID = "This account is already registered.";
+    return errors;
+}
 
 
 
