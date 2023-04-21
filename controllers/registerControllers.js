@@ -28,20 +28,57 @@ if (err.message.includes("Validation failed")) {
             errors[properties.path] = properties.message;
         }
     });
+};
 return errors;
 };
 
+module.exports.patient_register = async (req, res) => {
+  const diseases = Object.values(req.body.diseases);
+  const {
+    name,
+    dob,
+    mobile,
+    email,
+    adharCard,
+    bloodGroup,
+    address,
+    password,
+    contactPerson,
+  } = req.body;
 
+  const healthID = adharCard;
+  try {
+    const patient = await Patient.create({
+      name,
+      healthID,
+      dob,
+      mobile,
+      email,
+      adharCard,
+      bloodGroup,
+      address,
+      password,
+      diseases,
+      contactPerson,
+    });
+    const token = createToken(patient._id);
+    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+    res.status(200).json({ patient });
+  } catch (err) {
+    const errors = handleError(err);
+    res.status(404).json({ errors });
+  }
+};
 
-
-
-
-
-
-
-
-
-
-
-
-}
+module.exports.patient_login = async (req, res) => {
+    const { healthID, password } = req.body;
+    try {
+      const patient = await Patient.login(healthID, password);
+      const token = createToken(patient._id);
+      res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+      res.status(200).json({ patient });
+    } catch (err) {
+      const errors = handleError(err);
+      res.status(404).json({ errors });
+    }
+  };
