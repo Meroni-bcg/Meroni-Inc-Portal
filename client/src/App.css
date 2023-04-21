@@ -1,0 +1,78 @@
+.dashboard-sidebar {
+    width: 200px;
+    height: 100%;
+    background-color: #A0CED9;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .logo h1 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  nav {
+    padding-left: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav li {
+    color: #000000;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  nav li:hover {
+    background-color: #eff7f6;
+  }
+  
+  nav li.active {
+    background-color: #d2D2CF;
+    color: #000000;
+  }
+  
+  nav li.active:hover {
+    background-color: #d2D2CF;
+  }
+  
+  /* Content Styles */
+  
+  #doctor-profile {
+    display: block;
+  }
+  
+  #add-new-complaint {
+    display: none;
+  }
+  
+  #patient-history {
+    display: none;
+  }
+  
+  #prescription {
+    display: none;
+  }
+  

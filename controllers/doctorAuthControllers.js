@@ -8,34 +8,16 @@ module.exports.doctor_register = async (req, res) => {
   const specialization = Object.values(req.body.specialization);
   const {
     name,
-    org,
-    orgAddress,
-    dob,
-    mobile,
-    email,
-    adharCard,
-    bloodGroup,
-    address,
-    password,
-    orgNumber,
-    emergencyno,
+      dob,
+      mobile,
+      email,
   } = req.body;
   try {
     const doctor = await Doctor.create({
       name,
-      org,
-      orgAddress,
       dob,
       mobile,
       email,
-      adharCard,
-      bloodGroup,
-      education,
-      address,
-      password,
-      specialization,
-      orgNumber,
-      emergencyno,
     });
 
     res.status(200).json({ doctor });

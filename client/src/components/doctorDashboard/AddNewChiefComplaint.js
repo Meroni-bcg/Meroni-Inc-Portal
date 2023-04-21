@@ -27,7 +27,45 @@ const handleSubmit = (event) => {
     //Code to submit chief complaint data goes here
 
 setIsLoading(false);
-NavigationPreloadManager('/diagnosis'); //takes you to diagnosis page ** COMEBACK MAKE SURE WE HAVE THIS PAGE SET UP
+NavigationPreloadManager('/patientHistory'); //takes you to Patient History page ** COMEBACK MAKE SURE WE HAVE THIS PAGE SET UP
     
 };
 }
+
+// Returning the form with input fields for doctor name and medicine name, as well as a submit button that shows either "Loading..." or "Save Complaint" depending on the value of isLoading vvvvv
+
+return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Doctor Name:
+        <input
+          type="text"
+          value={doctor.name}
+          onChange={(event) =>
+            setDoctor((prevState) => ({
+              ...prevState,
+              name: event.target.value,
+            }))
+          }
+        />
+      </label>
+      <label>
+        Prescription Name:
+        <input
+          type="text"
+          value={prescriptionList[0].prescriptionName}
+          onChange={(event) =>
+            setPrescriptionName((prevState) => [
+              {
+                ...prevState[0],
+                prescriptionName: event.target.value,
+              },
+            ])
+          }
+        />
+      </label>
+      <button type="submit" disabled={isLoading}>
+        {isLoading ? "Loading..." : "Save Cief Complaint"}
+      </button>
+    </form>
+  );
