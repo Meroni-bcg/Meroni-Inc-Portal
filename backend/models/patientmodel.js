@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const patientSchema = new Schema({
+const router = require("express").Router();
+
+const patientSchema = new mongoose.Schema({
 
     title: {
       type: String,

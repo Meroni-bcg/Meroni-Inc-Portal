@@ -2,12 +2,19 @@ require("dotenv").config();
 const express = require('express');
 const patientRoutes = require("./routes/patientRoutes");
 const mongoose = require('mongoose')
+const router = require("express").Router();
 const dotenv = require('dotenv');
+const { getPatients } = require("../controllers/patientController");
 dotenv.config();
 mongoose.set('strictQuery', false);
 
 //express app
 const app = express();
+app.set("view engine", "jsx");
+app.engine("jsx", require("express-react-views").createEngine());
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 //middleware
 app.use(express.json())
@@ -18,11 +25,9 @@ app.use((req, res, next) => {
 }),
 
 //routes
-app.use('/api/patients', patientRoutes)
+app.use('/api/patient', patientRoutes)
 
-app.get('/', (req, res) => {
-  res.json({message: 'Welcome to Meroni-Inc-Portal'})
-}),
+app.get('/', getPatients)
 
 //connect to mongo
 mongoose.connect(process.env.MONGO_URI)

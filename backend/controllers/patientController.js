@@ -8,6 +8,10 @@ const getPatients = async(req, res) => {
     res.status(200).json(patients)
 }
 
+//Create a new Patient
+const createPatient = async(req, res)=>{
+    const {title, name } = req.body
+
 //Get a single Patient
 const getPatient = async(req,res) => {
     
@@ -25,9 +29,6 @@ const getPatient = async(req,res) => {
 res.status(200).json(patient)
 }
 
-//Create a new Patient
-const createPatient = async(req, res)=>{
-const {title, name } = req.body
 
 //Add doc to db
     try {
