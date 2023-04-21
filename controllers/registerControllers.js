@@ -28,6 +28,7 @@ if (err.message.includes("Validation failed")) {
             errors[properties.path] = properties.message;
         }
     });
+};
 return errors;
 };
 
@@ -81,4 +82,3 @@ module.exports.patient_login = async (req, res) => {
       res.status(404).json({ errors });
     }
   };
-  
