@@ -18,7 +18,7 @@ const {
   router.get('/:id', getPatient),
 
 // POST a new patient
-  router.post('/', createPatient),
+  router.post('/', createPatient) 
 
 //Delete patient
   router.delete('/:id',deletePatient),

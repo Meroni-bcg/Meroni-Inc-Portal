@@ -10,3 +10,5 @@ root.render(
     <App></App>
   </React.StrictMode>
 );
+
+export default root 

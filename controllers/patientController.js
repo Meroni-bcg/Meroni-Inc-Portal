@@ -27,11 +27,11 @@ res.status(200).json(patient)
 
 //Create a new Patient
 const createPatient = async(req, res)=>{
-const {firstName, lastName, dob, mobile, email, city, state} = req.body
+const {title, name } = req.body
 
 //Add doc to db
     try {
-      const patient = await Patient.create({firstName, lastName, dob, mobile, email, city, state })
+      const patient = await Patient.create({title, name})
       res.status(200).json(patient)
     } catch(error) {
       res.status(400).json({error: error.message})
