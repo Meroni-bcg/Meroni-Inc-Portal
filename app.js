@@ -20,6 +20,10 @@ app.use((req, res, next) => {
 //routes
 app.use('/api/patients', patientRoutes)
 
+app.get('/', (req, res) => {
+  res.json({message: 'Welcome to Meroni-Inc-Portal'})
+}),
+
 //connect to mongo
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
