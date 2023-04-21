@@ -11,6 +11,9 @@ if (err.message === "Invalid HealthID") {
 }
 
 //Incorrect password
+if (err.message === "Incorrect Password") {
+    errors.healthID = "Your password is incorrect";
+}
 
 //duplicate error code
 
