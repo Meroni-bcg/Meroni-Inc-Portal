@@ -31,3 +31,5 @@ NavigationPreloadManager('/diagnosis'); //takes you to diagnosis page ** COMEBAC
     
 };
 }
+
+// Returning the form with input fields for doctor name and medicine name, as well as a submit button that shows either "Loading..." or "Save Complaint" depending on the value of isLoading vvvvv
