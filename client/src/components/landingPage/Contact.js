@@ -27,7 +27,7 @@ const Contact = (props) => {
   };
 
   return (
-    <div className="body w-full ">
+    <div className="body w-full >
       <Navbar></Navbar>
 
       <div className="bg-secoundry ">
